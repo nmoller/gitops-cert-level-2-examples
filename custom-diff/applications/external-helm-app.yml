@@ -21,4 +21,16 @@ spec:
   syncPolicy:
     syncOptions:
       - CreateNamespace=true  
+
+    ignoreDifferences:
+    - name: example-secret
+      namespace: example02
+      kind: Secret
+      jsonPointers:
+        - /data/my-password
+    - name: simple-deployment
+      namespace: example02
+      kind: Deployment
+      jsonPointers:
+        - /metadata/annotations/creation
    
